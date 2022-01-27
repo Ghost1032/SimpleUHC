@@ -18,7 +18,6 @@
         <out.name>SimpleUHC-${project.version}</out.name>
         <debug.mcversion>1.18.1</debug.mcversion>
         <spigot.version>1.18.1-R0.1-SNAPSHOT</spigot.version>
-        <debug.server>E:\Game\Minecraft\Minecraft资源库\服务器\服务端\${debug.mcversion}\plugins</debug.server>
     </properties>
 
     <dependencies>
