@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>xingchen</groupId>
@@ -7,7 +9,7 @@
     <version>1.0.0</version>
 
     <name>SimpleUHC</name>
-    <url>http://maven.apache.org</url>
+    <url>https://maven.apache.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -15,6 +17,7 @@
         <maven.compiler.source>11</maven.compiler.source>
         <out.name>SimpleUHC-${project.version}</out.name>
         <debug.mcversion>1.18.1</debug.mcversion>
+        <spigot.version>1.18.1-R0.1-SNAPSHOT</spigot.version>
         <debug.server>E:\Game\Minecraft\Minecraft资源库\服务器\服务端\${debug.mcversion}\plugins</debug.server>
     </properties>
 
@@ -22,17 +25,16 @@
         <!--SpigotAPI -->
         <dependency>
             <groupId>org.spigotmc</groupId>
-            <artifactId>spigot</artifactId>
-            <version>${debug.mcversion}</version>
-            <scope>system</scope>
-            <systemPath>E:\Dev\Minecraft\MinecraftPlugin\api\spigot-api-1.18.1-R0.1-SNAPSHOT.jar</systemPath>
+            <artifactId>spigot-api</artifactId>
+            <version>${spigot.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>net.md-5</groupId>
-            <artifactId>bungeecord-parent</artifactId>
-            <version>1.16-R0.4</version>
-            <scope>system</scope>
-            <systemPath>E:\Dev\Minecraft\MinecraftPlugin\api\bungeecord-chat-1.16-R0.4.jar</systemPath>
+            <artifactId>bungeecord-api</artifactId>
+            <version>1.18-R0.1-SNAPSHOT</version>
+            <type>jar</type>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.jetbrains</groupId>
@@ -63,4 +65,15 @@
             </plugin>
         </plugins>
     </build>
+    <repositories>
+        <repository>
+            <id>bungeecord-repo</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </repository>
+        <repository>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        </repository>
+    </repositories>
+
 </project>
