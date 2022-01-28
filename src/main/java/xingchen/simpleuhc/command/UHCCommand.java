@@ -30,7 +30,7 @@ public class UHCCommand implements TabExecutor {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-        if(args.length == 0 || args[0].equalsIgnoreCase("help")) {
+        if(args.length == 0) {
             sendHelp(sender);
             return true;
         }
@@ -203,12 +203,14 @@ public class UHCCommand implements TabExecutor {
             });
             UHCGameManager.getInstance().getRooms().remove(name);
             sender.sendMessage(String.format(UHCLanguage.getInstance().translate("command.message.currentPlayers"), players.stream().map(i -> i.getName()).collect(Collectors.joining(", "))));
-            UHCGame game = new UHCGame(players, Setting.getInstance().generalSetting());
+            UHCGame game = new UHCGame(players, Setting.getInstance().generalUHCSetting());
             if(UHCGameManager.getInstance().newGame(game)) {
                 game.start(SimpleUHC.getInstance());
             } else {
                 sendMessage(sender, "command.message.full");
             }
+        } else {
+            sendHelp(sender);
         }
         /*if(args[0].equalsIgnoreCase("start")) {
             if(Setting.getInstance().getCentre() == null) {
